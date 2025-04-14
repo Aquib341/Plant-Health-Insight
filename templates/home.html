@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+
+{% block body %}
+
+
+<style>
+  /* Apply background image to the whole page */
+  body {
+    overflow-x: hidden;
+    background-image: url('../static/uploads/h2bg.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Make the background fixed during scrolling */
+    background-repeat: no-repeat; /* Prevent background repetition */
+  }
+
+  /* Styling for the header text */
+  .laptop {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Ensure the background of the header text section stands out */
+  .laptop .col-lg-10 {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for better visibility of text */
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  /* Make all images the same size */
+  .image-container {
+    width: 300px; /* Set the same size for all image containers */
+    height: 300px; /* Set the same size for all image containers */
+    margin: 0 auto; /* Center images within their containers */
+    overflow: hidden; /* Prevent the image from overflowing its container */
+  }
+
+  .image-container img {
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Ensure the image fills the container */
+    object-fit: cover; /* Maintain aspect ratio while covering the area */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+  }
+
+  /* Make images circular */
+  .rounded-circle {
+    border-radius: 50%; /* This makes the images circular */
+  }
+
+  /* Add shadow to the images */
+  .image-container img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+
+  /* Zoom effect on hover */
+  .zoom:hover {
+    transform: scale(1.1); /* Zoom in by 10% */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+
+  /* Button styling */
+  .btn-large {
+    padding: 1% 6%;
+    border-radius: 100px;
+    background-image: linear-gradient(270deg, rgb(77, 255, 136), rgb(24, 200, 5));
+  }
+
+  .btn-large span {
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+  }
+</style>
+
+<!-- Header section with background -->
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h3 class="display-5" style="padding-top: 10%; font-weight: 400; color: black;"><b>PLANT DISEASE DETECTION</b></h3>
+        <p class="lead" style="font-weight: 500; color: black; font-size: 17px;">
+            "Revolutionary AI Engine: Detect Diseases in Fruits and Veggies Instantly!"<br>
+            This cutting-edge AI technology is designed to quickly and accurately identify diseases in a wide variety of fruits and vegetables, ensuring healthier produce and better yields. <br>
+            Say goodbye to guesswork and hello to smarter farming and food quality!
+        </p>
+    </div>
+</div>
+
+<!-- Start button -->
+<center class="laptop">
+    <a href="/index">
+        <button class="btn btn-large"><span>Start</span></button>
+    </a>
+</center>
+
+<!-- Image section -->
+<div class="container mt-5">
+  <div class="row">
+      <!-- Image 1 -->
+      <div class="col-3">
+        <div class="rounded p-3 shadow text-center image-container">
+          <img src="../static/uploads/upload.png" class="rounded-circle img-fluid zoom" alt="">
+        </div>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="col-3">
+        <div class="rounded p-3 shadow text-center image-container">
+          <img src="../static/uploads/analysis.png" class="rounded-circle img-fluid zoom" alt="">
+        </div>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="col-3">
+        <div class="rounded p-3 shadow text-center image-container">
+          <img src="../static/uploads/treatment.png" class="rounded-circle img-fluid zoom" alt="">
+        </div>
+      </div>
+
+      <!-- Image 4 -->
+      <div class="col-3">
+        <div class="rounded p-3 shadow text-center image-container">
+          <img src="../static/uploads/happy crop.gif" class="rounded-circle img-fluid zoom" alt="">
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock body %}

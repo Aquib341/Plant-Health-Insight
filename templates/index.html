@@ -1,0 +1,150 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Engine
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    /* Set the background image behind the container only */
+    .container {
+        background-image: url('../static/uploads/bg2.jpeg'); /* Path to background image */
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px; /* Rounded corners */
+        position: relative;
+        z-index: 1;
+        overflow: hidden; /* Ensures the rounded corners effect */
+    }
+
+    /* Dark overlay to make the text more visible */
+    .container::before {
+        content: '';
+        background: rgba(123, 115, 115, 0.6); /* Dark overlay */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    /* Style for making the container content visible */
+    .bg-transparent {
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        border-radius: 15px; /* Rounded corners for inner content */
+    }
+
+    /* Heading and text styles */
+    h1, h5, h6 {
+        color: #fff; /* White text color for better contrast */
+    }
+
+    /* Button styles */
+    .btn-outline-success {
+        color: #fff;
+        border-color: #fff;
+        border-radius: 10px; /* Rounded corners for button */
+    }
+
+    .btn-outline-success:hover {
+        background-color: #fff;
+        color:rgb(253, 44, 21);
+    }
+
+    /* Padding adjustments for inner content */
+    .p-5 {
+        border-radius: 15px;
+        padding: 2rem;
+    }
+
+    /* Make sure the image file upload input has proper padding and visibility */
+    .custom-file {
+        position: relative;
+        display: block;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .custom-file input[type="file"] {
+        display: none;
+    }
+
+    .custom-file label {
+        display: inline-block;
+        background-image: linear-gradient(300deg, #ff5c4d, #ff4d4d);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .custom-file span {
+        display: block;
+        margin-top: 1rem;
+        color: black;
+    }
+</style>
+
+<div>
+    <div class="container">
+        <!-- For demo purpose -->
+        <div class="row mb-5 text-center">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4" style="padding-top: 2%; font-weight: 400; color: rgb(2, 2, 2);"><b>Detect Disease</b></h1>
+            </div>
+        </div>
+        <!-- End -->
+        <div class="row">
+            <div class="col mx-auto col-sm-12 col-md-6 col-lg-6">
+                <div class="p-5 bg-transparent shadow rounded-lg" style="height: 100%; margin-bottom: 5%;">
+                    <h5><b>Why is it necessary to detect disease in plants?</b></h5>
+                    <p>Early detection of plant diseases is crucial for protecting crop yield, quality,
+                        and overall agricultural sustainability. It helps prevent the spread of infections,
+                        reduces pesticide use, and supports efficient farming practices. By identifying diseases early,
+                        farmers can minimize crop loss, ensure food security, and promote environmentally friendly agriculture,
+                        ultimately contributing to global food supply and ecosystem health.
+                    </p>
+                </div>
+            </div>
+            <div class="col mx-auto col-sm-12 col-md-6 col-lg-6">
+                <div class="p-5 bg-transparent shadow rounded-lg" style="height: 100%;">
+                    <h6 class="text-center mb-4 text-muted">
+                        🌿 Discover the Magic of AI with Your Plant's Leaf! 🌿
+                        <br> Simply upload an image of your plant’s leaf, and watch as AI transforms it into something truly extraordinary. 🌱✨
+                        Let technology bring your plant’s beauty to life!
+                    </h6>
+                    <!-- Default bootstrap file upload-->
+                    <form action="/submit" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file overflow-hidden mb-4" style="padding-bottom: 20%;">
+                            <input type="file" id="actual-btn" hidden name="image" />
+                            <label for="actual-btn">Choose File</label>
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+
+                        <!-- End -->
+
+                        <!-- Custom bootstrap upload file-->
+                        <center>
+                            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Submit</button></a>
+                        </center>
+                    </form>
+                    <!-- End -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+
+{% endblock body %}
+</html>
